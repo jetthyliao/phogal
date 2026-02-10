@@ -1,5 +1,4 @@
 import { 
-  QueryClient, 
   type UseMutationOptions, 
   type DefaultOptions 
 } from '@tanstack/react-query';
