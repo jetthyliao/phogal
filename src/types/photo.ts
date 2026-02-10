@@ -3,7 +3,8 @@ export interface Photo {
   description: string;
   metadata: Record<string, any>; // Use a specific type if metadata has fields
   path: string;
-  color_scheme: string;
+  bg_color: string;
+  card_color: string;
 }
 
 export type PhotoData = Photo[];

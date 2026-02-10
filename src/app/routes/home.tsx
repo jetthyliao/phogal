@@ -22,7 +22,8 @@ const HomeRoute = () => {
     description: "",
     metadata: {},
     path: "",
-    color_scheme: "",
+    bg_color: "",
+    card_color: ""
   });
   const handleClickOpen = (photo: Photo) => {
     setOpen(true);

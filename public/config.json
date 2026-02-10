@@ -1,44 +1,66 @@
 [
   {
-    "title": "jane and dawg",
-    "description": "jane and kyle",
+    "title": "Knock Knock",
+    "description": "I found a red door and it led me to nowhere",
     "metadata": {},
-    "path": "/assets/2026-01-16_0134_02.jpg",
-    "color_scheme": "#ff0000"
+    "path": "/assets/jan-junk-forest/2026-01-10_0010.jpg",
+    "bg_color": "#443d39",
+    "card_color": "#9b3631"
   },
   {
-    "title": "",
-    "description": "bridge",
+    "title": "Bloo Ballz",
+    "description": "",
     "metadata": {},
-    "path": "/assets/2026-01-16_0135.jpg",
-    "color_scheme": ""
+    "path": "/assets/jan-junk-forest/2026-01-10_0012.jpg",
+    "bg_color": "#092c50",
+    "card_color": ""
   },
   {
-    "title": "",
-    "description": "rock",
+    "title": "Weeeee",
+    "description": "",
     "metadata": {},
-    "path": "/assets/2026-01-17_0018.jpg",
-    "color_scheme": ""
+    "path": "/assets/jan-junk-forest/2026-01-10_0014.jpg",
+    "bg_color": "#987500",
+    "card_color": ""
   },
   {
-    "title": "",
-    "description": "beach",
+    "title": "Cuidado",
+    "description": "",
     "metadata": {},
-    "path": "/assets/2026-01-17_0062.jpg",
-    "color_scheme": ""
+    "path": "/assets/jan-junk-forest/2026-01-10_0091.jpg",
+    "bg_color": "#733100",
+    "card_color": ""
   },
   {
-    "title": "",
-    "description": "sand shadow",
+    "title": "who RU",
+    "description": "",
     "metadata": {},
-    "path": "/assets/2026-01-17_0121.jpg",
-    "color_scheme": ""
+    "path": "/assets/jan-junk-forest/2026-01-16_0039.jpg",
+    "bg_color": "#293227",
+    "card_color": ""
   },
   {
-    "title": "",
-    "description": "kayak",
+    "title": "excavator",
+    "description": "",
     "metadata": {},
-    "path": "/assets/2026-01-17_0224.jpg",
-    "color_scheme": ""
+    "path": "/assets/jan-junk-forest/2026-01-18_0090.jpg",
+    "bg_color": "#5a4740",
+    "card_color": ""
+  },
+  {
+    "title": "big foot",
+    "description": "",
+    "metadata": {},
+    "path": "/assets/jan-junk-forest/2026-01-24_0031.jpg",
+    "bg_color": "#56372d",
+    "card_color": ""
+  },
+  {
+    "title": "RNU",
+    "description": "",
+    "metadata": {},
+    "path": "/assets/jan-junk-forest/2026-01-31_0033.jpg",
+    "bg_color": "#78786c",
+    "card_color": ""
   }
 ]

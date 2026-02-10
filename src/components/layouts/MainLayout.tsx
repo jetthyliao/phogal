@@ -9,7 +9,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div>
       <Header />
-      <Container>
+      <Container className="p-4">
         {children}
       </Container>
     </div>
