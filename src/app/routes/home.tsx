@@ -8,7 +8,7 @@ import { ImageList, ImageListItem } from "@mui/material";
 import type { PhotoData, Photo } from "@/types/photo";
 
 const fetchConfig = async () => {
-  const response = await fetch("phogal/config.json"); // Path relative to the public folder
+  const response = await fetch(`${import.meta.env.BASE_URL}config.json`); // Path relative to the public folder
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
