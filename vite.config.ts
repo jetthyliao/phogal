@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/phogal/', // This must match your repository name
   resolve: {
     alias: {
       '@': resolve('src')

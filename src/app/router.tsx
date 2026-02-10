@@ -1,5 +1,5 @@
 import { QueryClient, useQueryClient } from '@tanstack/react-query';
-import { createBrowserRouter, RouterProvider } from 'react-router';
+import { createHashRouter, RouterProvider } from 'react-router';
 
 import { paths } from '@/config/paths';
 
@@ -20,7 +20,7 @@ const convert = (queryClient: QueryClient) => (m: any) => {
 // INVESTIGATE: what is fast refresh and why does it error here???
 // eslint-disable-next-line react-refresh/only-export-components
 export const createAppRouter = (queryClient: QueryClient) =>
-  createBrowserRouter([
+  createHashRouter([
     {
       path: paths.home.path,
       lazy: () => import('./routes/home').then(convert(queryClient))
