@@ -1,9 +1,10 @@
 import Dialog from "@mui/material/Dialog";
 import type { Photo } from "@/types/photo";
-import { Card, DialogContent, Divider } from "@mui/material";
+import { Card, DialogContent, Divider, IconButton } from "@mui/material";
 
 import exifr from 'exifr';
 import { useEffect, useState } from "react";
+import { Close } from "@mui/icons-material";
 
 const formatShutterSpeed = (exposureTime: number) => {
   if (!exposureTime) return 'N/A';
@@ -52,6 +53,23 @@ export default function PhotoDialog(props: PhotoDialogProps) {
 
   return (
     <Dialog onClose={handleClose} open={open} fullScreen>
+      <IconButton
+        aria-label="close"
+        onClick={onClose}
+        sx={{
+          position: 'absolute',
+          right: 16,
+          top: 16,
+          zIndex: 10, // Ensure it stays above the content
+          color: 'white', // High contrast against bg_color
+          backgroundColor: 'rgba(0, 0, 0, 0.2)', // Subtle background for visibility
+          '&:hover': {
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+          },
+        }}
+      >
+        <Close fontSize="large" />
+      </IconButton>
       <DialogContent style={{ backgroundColor: photo.bg_color }}>
         <div className=" w-full flex items-center justify-center mb-6">
           <img
