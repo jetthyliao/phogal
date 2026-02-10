@@ -1,64 +1,73 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+
 import MainLayout from "@/components/layouts/MainLayout";
 
-import image1 from "@/assets/2026-01-16_0134_02.jpg";
-import image2 from "@/assets/2026-01-16_0135.jpg";
-import image3 from "@/assets/2026-01-17_0018.jpg";
-import image4 from "@/assets/2026-01-17_0062.jpg";
-import image5 from "@/assets/2026-01-17_0121.jpg";
-import image6 from "@/assets/2026-01-17_0224.jpg";
-
-import ImageDialog from "@/components/ui/imageDialog/ImageDialog";
+import PhotoDialog from "@/components/ui/photoDialog/PhotoDialog";
 import { ImageList, ImageListItem } from "@mui/material";
+import type { PhotoData, Photo } from "@/types/photo";
+
+const fetchConfig = async () => {
+  const response = await fetch("/config.json"); // Path relative to the public folder
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json(); // Parses the JSON data into a JavaScript object
+};
 
 const HomeRoute = () => {
   const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("");
-  const handleClickOpen = (imageSource: string) => {
+  const [selectedValue, setSelectedValue] = useState<Photo>({
+    title: "",
+    description: "",
+    metadata: {},
+    path: "",
+    color_scheme: "",
+  });
+  const handleClickOpen = (photo: Photo) => {
     setOpen(true);
-    setSelectedValue(imageSource)
+    setSelectedValue(photo);
   };
-  const handleClose = (value: string) => {
+  const handleClose = () => {
     setOpen(false);
   };
 
-  // TODO: dictionary of image objects (defined in readme...)
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["config"], // Unique key for the query
+    queryFn: fetchConfig, // The fetching function
+  });
 
-  // TODO: use dict to render all images here
-  // TODO: create pages for each month (or tabs)
+  if (isLoading) {
+    return <p>Loading configuration...</p>;
+  }
 
-  const image_objs = [
-    { "path": "/assets/2026-01-16_0134_02.jpg", },
-    { "path": "/assets/2026-01-16_0135.jpg", },
-    { "path": "/assets/2026-01-17_0018.jpg", },
-    { "path": "/assets/2026-01-17_0062.jpg", },
-    { "path": "/assets/2026-01-17_0121.jpg", },
-    { "path": "/assets/2026-01-17_0224.jpg", },
-  ]
+  if (error) {
+    return <p>Error loading config: {error.message}</p>;
+  }
+
+  const photoData: PhotoData = data;
 
   return (
     <MainLayout>
       <ImageList variant="quilted">
-        {image_objs.map((image, index) => (
+        {photoData.map((photo, index) => (
           <ImageListItem key={index}>
             <img
-              src={image.path}
+              src={photo.path}
               alt={`Gallery item ${index}`}
-              onClick={() => handleClickOpen(image.path)}
+              onClick={() => handleClickOpen(photo)}
               loading="lazy"
             />
           </ImageListItem>
         ))}
       </ImageList>
 
-      <ImageDialog
-        selectedValue={selectedValue}
+      <PhotoDialog
+        photo={selectedValue}
         open={open}
         onClose={handleClose}
       />
-
-    </MainLayout >
-
+    </MainLayout>
   );
 };
 
