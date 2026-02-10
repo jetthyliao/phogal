@@ -1,4 +1,8 @@
-import { UseMutationOptions, DefaultOptions } from '@tanstack/react-query'
+import { 
+  QueryClient, 
+  type UseMutationOptions, 
+  type DefaultOptions 
+} from '@tanstack/react-query';
 
 export const queryConfig = {
   queries: {
